@@ -1,0 +1,5 @@
+F:\Programme\C_sharp\TestProjects\VocalbularyMemorizing\VocabularyMemorizing.Common\bin\Debug\VocabularyMemorizing.Common.dll
+F:\Programme\C_sharp\TestProjects\VocalbularyMemorizing\VocabularyMemorizing.Common\bin\Debug\VocabularyMemorizing.Common.pdb
+F:\Programme\C_sharp\TestProjects\VocalbularyMemorizing\VocabularyMemorizing.Common\obj\Debug\VocabularyMemorizing.Common.csprojResolveAssemblyReference.cache
+F:\Programme\C_sharp\TestProjects\VocalbularyMemorizing\VocabularyMemorizing.Common\obj\Debug\VocabularyMemorizing.Common.dll
+F:\Programme\C_sharp\TestProjects\VocalbularyMemorizing\VocabularyMemorizing.Common\obj\Debug\VocabularyMemorizing.Common.pdb
