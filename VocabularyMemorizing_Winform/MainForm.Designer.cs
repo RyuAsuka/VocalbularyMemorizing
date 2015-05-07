@@ -43,6 +43,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnFinish = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
+            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,7 +77,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFile});
+            this.menuFile,
+            this.statisticsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(567, 28);
@@ -163,7 +167,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.DefaultExt = "txt";
-            this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Text File|*.txt|All Files|*.*";
             this.openFileDialog1.Title = "Open the word file...";
             // 
@@ -186,6 +189,27 @@
             this.lblNumber.Name = "lblNumber";
             this.lblNumber.Size = new System.Drawing.Size(0, 27);
             this.lblNumber.TabIndex = 7;
+            // 
+            // statisticsToolStripMenuItem
+            // 
+            this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.correctCountToolStripMenuItem,
+            this.correctRateToolStripMenuItem});
+            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.statisticsToolStripMenuItem.Text = "&Statistics";
+            // 
+            // correctCountToolStripMenuItem
+            // 
+            this.correctCountToolStripMenuItem.Name = "correctCountToolStripMenuItem";
+            this.correctCountToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.correctCountToolStripMenuItem.Text = "&CorrectCount...";
+            // 
+            // correctRateToolStripMenuItem
+            // 
+            this.correctRateToolStripMenuItem.Name = "correctRateToolStripMenuItem";
+            this.correctRateToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.correctRateToolStripMenuItem.Text = "Correct&Rate...";
             // 
             // MainForm
             // 
@@ -232,6 +256,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnFinish;
         private System.Windows.Forms.Label lblNumber;
+        private System.Windows.Forms.ToolStripMenuItem statisticsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem correctCountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem correctRateToolStripMenuItem;
     }
 }
 

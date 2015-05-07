@@ -16,9 +16,15 @@ namespace VocabularyMemorizing_Winform
     {
         WordList wl = new WordList();
         Random rd = new Random();
+        StatData sd;
         int rdn = 0;
         bool moveToNext = false;
         int count = 1;
+        double CorrectRate = 0.0;
+        int passTime = 1;
+
+        const string correctCountPath = @"CorrectCount.txt";
+        const string correctRatePath = @"CorrectRate.txt";
 
         public MainForm()
         {
@@ -29,19 +35,58 @@ namespace VocabularyMemorizing_Winform
 
         private void menuOpen_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            Stream st = openFileDialog1.OpenFile();
-            using(StreamReader sr = new StreamReader(st))
+            try
             {
-                while(!sr.EndOfStream)
+                openFileDialog1.ShowDialog();
+                Stream st = openFileDialog1.OpenFile();
+                using (StreamReader sr = new StreamReader(st))
                 {
-                    string s = sr.ReadLine();
-                    string[] ss = s.Split(':');
-                    wl.AddWord(ss);
+                    while (!sr.EndOfStream)
+                    {
+                        string s = sr.ReadLine();
+                        string[] ss = s.Split(':');
+                        wl.AddWord(ss);
+                    }
                 }
-            }
 
-            GetWord();
+                FileStream fs = new FileStream(correctCountPath, FileMode.OpenOrCreate);
+                if(fs.Length == 0)
+                {
+                    sd = new StatData(wl);
+                }
+                else
+                {
+                    List<string[]> filedata = new List<string[]>();
+                    using(StreamReader sr = new StreamReader(fs))
+                    {
+                        while(!sr.EndOfStream)
+                        {
+                            string s = sr.ReadLine();
+                            string[] ss = s.Split(' ');
+                            filedata.Add(ss);
+                        }
+                        sd = new StatData(filedata);
+                    }
+                }
+                fs.Close();
+
+                fs = new FileStream(correctRatePath, FileMode.OpenOrCreate);
+                using(StreamReader sr = new StreamReader(fs))
+                {
+                    while(!sr.EndOfStream)
+                    {
+                        sr.ReadLine();
+                        passTime++;
+                    }
+                }
+
+                count = 1;
+                GetWord();
+            }
+            catch(Exception ex)
+            {
+                // do nothing.
+            }
 
         }
 
@@ -71,6 +116,7 @@ namespace VocabularyMemorizing_Winform
                 {
                     txtResult.Text = "Correct!";
                     wl.SetCorrect(rdn, true);
+                    sd.SelfAdd(wl.GetContent(rdn));
                 }
                 else
                 {
@@ -113,7 +159,32 @@ namespace VocabularyMemorizing_Winform
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
+            txtMeaning.Text = "";
+            txtAnswer.Text = "";
+            txtResult.Text = "";
+            lblHint.Text = "";
+            moveToNext = false;
+            btnNext.Enabled = false;
+            btnFinish.Enabled = false;
+            CorrectRate = wl.CorrectRatio();
             MessageBox.Show(string.Format("correct ratio = {0:P}", wl.CorrectRatio()), "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            StatSave();
+        }
+
+        private void StatSave()
+        {
+            using (StreamWriter sw = new StreamWriter(correctCountPath))
+            {
+                for(int i = 0; i < sd.Count; i++)
+                {
+                    sw.WriteLine("{0} {1}", sd.GetItem(i).Key, sd.GetItem(i).Value) ;
+                }
+            }
+
+            using(StreamWriter sw = new StreamWriter(correctRatePath, true))
+            {
+                sw.WriteLine("{0},{1:P}", passTime, CorrectRate);
+            }
         }
 
 
