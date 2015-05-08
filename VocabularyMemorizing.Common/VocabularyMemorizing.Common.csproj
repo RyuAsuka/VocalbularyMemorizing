@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CorrectCount.cs" />
+    <Compile Include="CorrectRate.cs" />
     <Compile Include="StatData.cs" />
     <Compile Include="WordList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -83,5 +83,10 @@ namespace VocabularyMemorizing.Common
             }
             return true;
         }
+
+        public void Clear()
+        {
+            wordList.Clear();
+        }
     }
 }

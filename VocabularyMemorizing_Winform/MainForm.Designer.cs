@@ -35,6 +35,9 @@
             this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.correctRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblHint = new System.Windows.Forms.Label();
             this.txtAnswer = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnFinish = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
-            this.statisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.correctCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.correctRateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,11 +114,34 @@
             this.menuExit.Size = new System.Drawing.Size(188, 24);
             this.menuExit.Text = "E&xit";
             // 
+            // statisticsToolStripMenuItem
+            // 
+            this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.correctCountToolStripMenuItem,
+            this.correctRateToolStripMenuItem});
+            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
+            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
+            this.statisticsToolStripMenuItem.Text = "&Statistics";
+            // 
+            // correctCountToolStripMenuItem
+            // 
+            this.correctCountToolStripMenuItem.Name = "correctCountToolStripMenuItem";
+            this.correctCountToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.correctCountToolStripMenuItem.Text = "&CorrectCount...";
+            this.correctCountToolStripMenuItem.Click += new System.EventHandler(this.correctCountToolStripMenuItem_Click);
+            // 
+            // correctRateToolStripMenuItem
+            // 
+            this.correctRateToolStripMenuItem.Name = "correctRateToolStripMenuItem";
+            this.correctRateToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.correctRateToolStripMenuItem.Text = "Correct&Rate...";
+            this.correctRateToolStripMenuItem.Click += new System.EventHandler(this.correctRateToolStripMenuItem_Click);
+            // 
             // lblHint
             // 
             this.lblHint.AutoSize = true;
             this.lblHint.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHint.Location = new System.Drawing.Point(20, 260);
+            this.lblHint.Location = new System.Drawing.Point(19, 263);
             this.lblHint.Name = "lblHint";
             this.lblHint.Size = new System.Drawing.Size(0, 47);
             this.lblHint.TabIndex = 2;
@@ -126,7 +149,7 @@
             // txtAnswer
             // 
             this.txtAnswer.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswer.Location = new System.Drawing.Point(76, 260);
+            this.txtAnswer.Location = new System.Drawing.Point(76, 259);
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(356, 54);
             this.txtAnswer.TabIndex = 3;
@@ -189,27 +212,6 @@
             this.lblNumber.Name = "lblNumber";
             this.lblNumber.Size = new System.Drawing.Size(0, 27);
             this.lblNumber.TabIndex = 7;
-            // 
-            // statisticsToolStripMenuItem
-            // 
-            this.statisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.correctCountToolStripMenuItem,
-            this.correctRateToolStripMenuItem});
-            this.statisticsToolStripMenuItem.Name = "statisticsToolStripMenuItem";
-            this.statisticsToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.statisticsToolStripMenuItem.Text = "&Statistics";
-            // 
-            // correctCountToolStripMenuItem
-            // 
-            this.correctCountToolStripMenuItem.Name = "correctCountToolStripMenuItem";
-            this.correctCountToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.correctCountToolStripMenuItem.Text = "&CorrectCount...";
-            // 
-            // correctRateToolStripMenuItem
-            // 
-            this.correctRateToolStripMenuItem.Name = "correctRateToolStripMenuItem";
-            this.correctRateToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.correctRateToolStripMenuItem.Text = "Correct&Rate...";
             // 
             // MainForm
             // 
